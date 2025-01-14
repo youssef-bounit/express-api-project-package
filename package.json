@@ -1,0 +1,29 @@
+{
+    "name": "create-express-api-project",
+    "version": "1.0.0",
+    "description": "A CLI tool to quickly generate a scalable and organized project structure for Express and Node.js applications.",
+    "main": "index.js",
+    "bin": {
+        "create-express-api-project": "./bin/express-api-project.js"
+    },
+    "scripts": {
+        "test": "echo \"No tests specified\" && exit 0"
+    },
+    "keywords": [
+        "express",
+        "nodejs",
+        "api",
+        "project-generator",
+        "cli-tool",
+        "scaffold",
+        "boilerplate",
+        "express-setup",
+        "node-api",
+        "express-boilerplate"
+    ],
+    "author": "Youssef Bounit",
+    "license": "MIT",
+    "dependencies": {
+        "chalk": "^5.4.1"
+    }
+}

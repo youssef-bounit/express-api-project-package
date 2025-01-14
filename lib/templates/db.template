@@ -1,0 +1,42 @@
+require('dotenv').config();
+const { MongoClient } = require('mongodb');
+
+const {
+  DB_HOST,
+  DB_PORT,
+  DB_USER,
+  DB_PASSWORD,
+  DB_NAME
+} = process.env;
+
+const credentials = DB_USER && DB_PASSWORD ? `${DB_USER}:${DB_PASSWORD}@` : '';
+const uri = `mongodb://${credentials}${DB_HOST}:${DB_PORT}/${DB_NAME}`;
+
+let client;
+let db;
+
+const connectDB = async () => {
+  if (client) {
+    return db; // Return already connected DB if client exists
+  }
+
+  try {
+    client = new MongoClient(uri);
+    await client.connect();
+    console.log('Connected to MongoDB');
+    db = client.db(DB_NAME); // Assign the db object once connected
+    return db;
+  } catch (err) {
+    console.error('Error connecting to MongoDB:', err);
+    throw err;
+  }
+};
+
+const closeDB = async () => {
+  if (client) {
+    await client.close();
+    console.log('MongoDB connection closed');
+  }
+};
+
+module.exports = { connectDB, closeDB };

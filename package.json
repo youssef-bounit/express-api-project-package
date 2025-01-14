@@ -6,6 +6,9 @@
     "bin": {
         "create-express-api-project": "./bin/express-api-project.js"
     },
+    "repository": {
+        "url": "https://github.com/youssef-bounit/express-api-project-package"
+    },
     "scripts": {
         "test": "echo \"No tests specified\" && exit 0"
     },
